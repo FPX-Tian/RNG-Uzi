@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:09:05:13 +0800] "GET / HTTP/1.1" 200 7590 http-bio-8080-exec-1 73
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:09:05:13 +0800] "GET /images/login-sprite.png HTTP/1.1" 404 949 http-bio-8080-exec-2 37
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:09:05:18 +0800] "POST /login2 HTTP/1.1" 200 6469 http-bio-8080-exec-3 680
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:09:05:18 +0800] "POST /getpri HTTP/1.1" 200 1030 http-bio-8080-exec-7 93
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:09:05:59 +0800] "GET /product/listall2?jsonpCallback=jQuery34105415073207417549_1577927159437&_=1577927159438 HTTP/1.1" 200 4617 http-bio-8080-exec-9 117
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:09:03 +0800] "GET / HTTP/1.1" 200 7590 http-bio-8080-exec-1 71
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:09:03 +0800] "GET /images/login-sprite.png HTTP/1.1" 404 949 http-bio-8080-exec-2 30
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:09:06 +0800] "POST /login2 HTTP/1.1" 200 6469 http-bio-8080-exec-3 501
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:09:06 +0800] "POST /getpri HTTP/1.1" 200 1030 http-bio-8080-exec-4 78
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:09:24 +0800] "GET /product/all HTTP/1.1" 200 7589 http-bio-8080-exec-5 12
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:09:24 +0800] "POST /product/list HTTP/1.1" 200 1100 http-bio-8080-exec-6 132
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:10:43 +0800] "GET /product/listall2?jsonpCallback=jQuery3410631100121280243_1577931042952&_=1577931042953 HTTP/1.1" 200 4616 http-bio-8080-exec-8 43
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:10:53 +0800] "GET /product/listall2?jsonpCallback=jQuery34105965141855110028_1577931053828&_=1577931053829 HTTP/1.1" 200 4617 http-bio-8080-exec-10 23
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:10:38:29 +0800] "GET /product/listall2?jsonpCallback=jQuery3410025388078602941455_1577932709632&_=1577932709633 HTTP/1.1" 200 4619 http-bio-8080-exec-2 19
+0:0:0:0:0:0:0:1 - - [02/Jan/2020:12:04:30 +0800] "GET /product/listall2?jsonpCallback=jQuery341035095000278179866_1577937869385&_=1577937869386 HTTP/1.1" 200 4618 http-bio-8080-exec-1 816
