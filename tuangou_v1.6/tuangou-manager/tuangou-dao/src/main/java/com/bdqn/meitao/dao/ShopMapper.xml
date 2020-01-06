@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdqn.meitao.dao.ShopMapper">
+  <resultMap id="BaseResultMap" type="com.bdqn.meitao.pojo.Shop">
+    <id column="shopID" jdbcType="INTEGER" property="shopid" />
+    <result column="shopName" jdbcType="VARCHAR" property="shopname" />
+    <result column="shopAddress" jdbcType="VARCHAR" property="shopaddress" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    shopID, shopName, shopAddress, contact
+  </sql>
+  <select id="selectByExample" parameterType="com.bdqn.meitao.pojo.ShopExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from shop
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where shopID = #{shopid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop
+    where shopID = #{shopid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bdqn.meitao.pojo.ShopExample">
+    delete from shop
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bdqn.meitao.pojo.Shop">
+    insert into shop (shopID, shopName, shopAddress, 
+      contact)
+    values (#{shopid,jdbcType=INTEGER}, #{shopname,jdbcType=VARCHAR}, #{shopaddress,jdbcType=VARCHAR}, 
+      #{contact,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bdqn.meitao.pojo.Shop">
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shopid != null">
+        shopID,
+      </if>
+      <if test="shopname != null">
+        shopName,
+      </if>
+      <if test="shopaddress != null">
+        shopAddress,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shopid != null">
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null">
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopaddress != null">
+        #{shopaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bdqn.meitao.pojo.ShopExample" resultType="java.lang.Long">
+    select count(*) from shop
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update shop
+    <set>
+      <if test="record.shopid != null">
+        shopID = #{record.shopid,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopname != null">
+        shopName = #{record.shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopaddress != null">
+        shopAddress = #{record.shopaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contact != null">
+        contact = #{record.contact,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update shop
+    set shopID = #{record.shopid,jdbcType=INTEGER},
+      shopName = #{record.shopname,jdbcType=VARCHAR},
+      shopAddress = #{record.shopaddress,jdbcType=VARCHAR},
+      contact = #{record.contact,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bdqn.meitao.pojo.Shop">
+    update shop
+    <set>
+      <if test="shopname != null">
+        shopName = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopaddress != null">
+        shopAddress = #{shopaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where shopID = #{shopid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bdqn.meitao.pojo.Shop">
+    update shop
+    set shopName = #{shopname,jdbcType=VARCHAR},
+      shopAddress = #{shopaddress,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR}
+    where shopID = #{shopid,jdbcType=INTEGER}
+  </update>
+</mapper>
